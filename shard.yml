@@ -1,0 +1,9 @@
+name: dynany
+version: 0.1.0
+
+authors:
+  - Julien Reichardt <mi@jrei.ch>
+
+description: Dynamic JSON/YAML mapping manipulation - extends Any
+
+license: ISC
