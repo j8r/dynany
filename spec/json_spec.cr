@@ -20,10 +20,6 @@ describe JSON::Any do
     json[["key", "r"]]?.should eq nil
   end
 
-  it "gets several non existent key" do
-    json[["key", "r", "o"]]?.should eq nil
-  end
-
   it "set a key" do
     json_tmp = json.dup
     (json_tmp[["e", 0, "o"]] = JSON::Any.new "test").should eq "test"

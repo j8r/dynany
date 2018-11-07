@@ -1,9 +1,13 @@
 name: dynany
-version: 0.1.1
+version: 0.2.0
 
 authors:
   - Julien Reichardt <mi@jrei.ch>
 
-description: Dynamic JSON/YAML mapping manipulation - extends Any
+description: Dynamic JSON/YAML/CON mapping manipulation - extends Any
+
+development_dependencies:
+  con:
+    github: j8r/con
 
 license: ISC

@@ -1,25 +1,33 @@
 # Dynany
 
-Dynamic JSON/YAML mapping manipulation - extends `Any`
+Dynamic JSON/YAML/CON mapping manipulation - extends `Any`
 
 ## Installation
 
-Add this block to your application's `shard.yml`:
+Add the dependency to your `shard.yml`:
 
 ```yaml
 dependencies:
-  clicr:
+  dynany:
     github: j8r/dynany
 ```
 
 ## Usage
 
-This shard monkey patch `JSON::Any` and `YAML::Any` to extend them by adding this following methods, which are equivalent for those fround in [Hash](https://crystal-lang.org/api/master/Hash.html) and [Array](https://crystal-lang.org/api/master/array.html).
+This shard monkey patch `JSON::Any`, `YAML::Any` and `CON::Any` to extend them by adding this following methods, which are equivalent for those fround in [Hash](https://crystal-lang.org/api/master/Hash.html) and [Array](https://crystal-lang.org/api/master/array.html).
 
 The main difference is the argument, which accept an `Enumerable` which represents a path in the document.
 
 
-The methods are: `#[](path : Enunerable)`, `#[]?(path : Enumerable`, `#[]=(path : Enumerable)` and `#.delete(path : Enumerable)`
+The available methods are:
+
+`#[](path : Enunerable)`
+
+`#[]?(path : Enumerable`
+
+`#[]=(path : Enumerable)`
+
+`#delete(path : Enumerable)`
 
 ## Example
 
