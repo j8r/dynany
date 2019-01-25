@@ -19,6 +19,10 @@ describe CON::Any do
     con[["key", "r"]]?.should eq nil
   end
 
+  it "gets a key" do
+    con[["key", "b"]].should eq "val"
+  end
+
   it "set a key" do
     con_tmp = con.dup
     (con_tmp[["e", 0, "o"]] = CON::Any.new "test").should eq "test"

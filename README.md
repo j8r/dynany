@@ -34,12 +34,12 @@ The available methods are:
 ```crystal
 require "dynany/json"
 
-json = JSON.parse my_json
-json[["hash", "array", 1]]  # => "value"
-json.delete ["hash", "array", 1]
-json[["hash", "array", 1]]? # => nil  
+json = JSON.parse %({"hash": {"array": ["first", "second"]}})
+json[["hash", "array", 1]]       # => "second"
+json.delete ["hash", "array", 1] # => {"hash" => {"array" => ["first"]}}
+json[["hash", "array", 1]]?      # => nil
 ```
 
 ## License                                                                                                 
 
-Copyright (c) 2018 Julien Reichardt - ISC License
+Copyright (c) 2018-2019 Julien Reichardt - ISC License

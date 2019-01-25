@@ -3,15 +3,10 @@ require "json"
 
 module JSON
   struct Any
-    Dynany.any_methods "JSON"
-
-    # Deletes the key-value pair.
-    def delete(key : String)
-      as_h.delete key
-    end
+    include Dynany(JSON)
 
     # Sets the value of key to the given value.
-    def []=(key : String, value : Any)
+    def []=(key : String, value : Any) : T::Any
       as_h[key] = value
     end
   end

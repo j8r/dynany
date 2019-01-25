@@ -3,6 +3,28 @@ require "yaml"
 
 module YAML
   struct Any
+    include Dynany(YAML)
+
+    def [](path : Enumerable) : YAML::Any
+      first_key = path.first
+      if path.size == 1
+        self[first_key]
+      else
+        self[first_key][path.to_a[1..-1]]
+      end
+    end
+
+    def []?(path : Enumerable) : YAML::Any?
+      first_key = path.first
+      if path.size == 1
+        self[first_key]?
+      else
+        if keys = self[first_key]?
+          keys[path.to_a[1..-1]]?
+        end
+      end
+    end
+
     private def transform(path : Array) : Array(Any | Int32 | Int64)
       array = Array(Any | Int32 | Int64).new
       path.each do |key|
@@ -26,15 +48,13 @@ module YAML
     end
 
     # Deletes the key-value pair.
-    def delete(key : Any)
-      as_h.delete key.as_s
+    def delete(key : Any) : YAML::Any?
+      delete key.as_s
     end
 
     # Sets the value of key to the given value.
-    def []=(key : Any, value : Any)
+    def []=(key : Any, value : Any) : YAML::Any
       as_h[key] = value
     end
-
-    Dynany.any_methods "YAML"
   end
 end
