@@ -5,26 +5,6 @@ module YAML
   struct Any
     include Dynany(YAML)
 
-    def [](path : Enumerable) : YAML::Any
-      first_key = path.first
-      if path.size == 1
-        self[first_key]
-      else
-        self[first_key][path.to_a[1..-1]]
-      end
-    end
-
-    def []?(path : Enumerable) : YAML::Any?
-      first_key = path.first
-      if path.size == 1
-        self[first_key]?
-      else
-        if keys = self[first_key]?
-          keys[path.to_a[1..-1]]?
-        end
-      end
-    end
-
     private def transform(path : Array) : Array(Any | Int32 | Int64)
       array = Array(Any | Int32 | Int64).new
       path.each do |key|

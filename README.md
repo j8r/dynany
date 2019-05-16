@@ -1,3 +1,5 @@
+[![Build Status](https://cloud.drone.io/api/badges/j8r/dynany/status.svg)](https://cloud.drone.io/j8r/dynany)
+
 # Dynany
 
 Dynamic JSON/YAML/CON mapping manipulation - extends `Any`

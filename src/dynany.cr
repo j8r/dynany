@@ -1,4 +1,6 @@
 module Dynany(T)
+  # Allows to take precedence over the stdlib methods, which also accept enumerables (but not only).
+  macro included
   # Returns the value corresponding to the path. If not found, raise.
   def [](path : Enumerable) : T::Any
     first_key = path.first
@@ -19,6 +21,7 @@ module Dynany(T)
         keys[path.to_a[1..-1]]?
       end
     end
+  end
   end
 
   # Sets the value of key to the given value.
